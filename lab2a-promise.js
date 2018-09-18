@@ -21,11 +21,16 @@ for (let i = 0; i < 10; i++) {
 ///// Problem 2 - More fun...
 function countBig(bignum) {
     // Add code here that returns a Promise that will resolve after it has counted to bignum
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {resolve()}, bignum);
-    });
-}
+    let i = 0;
 
+    for (i = 0; i < bignum; i++);
+
+    let p = new Promise ((resolve, reject) => {
+      if (i == bignum) resolve();
+      else reject();
+    })
+    return p;
+}
 
 start = Date.now();
 bignum = 1000000000;
